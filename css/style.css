@@ -86,6 +86,33 @@ a:hover { color: #036; }
     \\ ========================================== //
 */
 
+body {
+  font-size: 150%;
+}
+#header-wrapper {
+  height: 100px;
+  width: 100%;
+  background: #EEE;
+}
+#header {
+  margin: 0 auto;
+  width: 1000px;
+}
+#controls {
+  margin: 0 auto;
+  padding-top: 5px;
+  height: 65px;
+  width: 1000px;
+}
+#display {
+  margin: 0 auto;
+  width: 1000px;
+  height: 500px;
+  border: 2px solid #EEE;
+}
+.ember-button {
+  padding: 10px 60px 10px 60px;
+  margin: 5px 5px 5px 0;
 
 
 
