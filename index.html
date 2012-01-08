@@ -22,13 +22,15 @@
     </div>
   </div>
   <div id="controls">
-    <script type="text/x-handlebars">
-      {{#view Em.Button classBinding="isActive"
-        target="Webinect.HostsController"
-        action="showHosts"}}
-        hosts
-      {{/view}} 
-    </script>
+    <div class="control">
+      <script type="text/x-handlebars">
+        {{#view Em.Button
+          target="Webinect.HostsController"
+          action="showHosts"}}
+          hosts
+        {{/view}} 
+      </script>
+    </div>
   </div>
   <div id="display">
   </div>
