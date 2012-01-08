@@ -22,7 +22,12 @@ Webinect.HostsController = Em.ArrayProxy.create({
   addHost: function(host, port) {},
   removeHost: function(host) {},
   showHosts: function() {
-    alert('It Works')
+		$('#show-hosts').dialog({buttons: [
+      {
+        text: 'close',
+        click: function(){$(this).dialog('close');}
+      }
+    ]});
   },
   showHost: function() {}
 });
