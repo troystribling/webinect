@@ -113,21 +113,46 @@ body {
   height: 500px;
   border: 2px solid #EEE;
 }
+/* host table */
 #host-table {
   width: 750px;
 }
 #host-table th {
   color: #666;
   padding-bottom: 10px;
+  width: 250px;
   border-bottom: 2px solid #999;
 }
-ui-button-text {
+#host-table td {
+  color: #999;
+  width: 250px;
+  height: 60px;
+  padding-top: 10px;
+  border-bottom: 2px solid #999;
+  text-align: center;
+}
+tr#add-host-row {
+}
+td#add-host {
+  padding-top: 25px;
+  font-style: italic
+}
+td#add-host-port {
+  padding-top: 25px;
+  font-style: italic
+}
+td#add-host-button {
+  padding-bottom: 10px;
+}
+/* jquery */
+.ui-button-text {
   font-size: 80%;
 }
 .ui-widget-overlay {
   opacity: 0.6;
   background: #000;
 }
+/* ember */
 .ember-button {
   padding: 10px 60px 10px 60px;
   margin: 5px 5px 5px 0;

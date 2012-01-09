@@ -29,7 +29,7 @@
           target="Webinect.HostsController"
           action="showHosts"}}
           hosts
-        {{/view}} 
+        {{/view}}
       </script>
     </div>
   </div>
@@ -40,13 +40,27 @@
       <tr>
         <th>host</th>
         <th>port</th>
-        <th>status</th>
+        <th></th>
+      </tr>
+      <tr id="add-host-row">
+        <td id="add-host">Enter Host</td>
+        <td id="add-host-port">Enter Port</td>
+        <td id="add-host-button">
+          <script type="text/x-handlebars">
+            {{#view Em.Button
+              target="Webinect.HostsController"
+              action="addHost"}}
+              add
+            {{/view}}
+          </script>
+         </td>
       </tr>
     </table>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
   <script src="js/libs/jquery-ui-1.8.16.custom.min.js"></script>
+  <script src="js/libs/jquery.editable-1.3.3.js"></script>
   <script src="js/libs/ember-0.9.3.min.js"></script>
   <script src="js/app.js"></script>
 </body>
