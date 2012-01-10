@@ -125,11 +125,21 @@ body {
 }
 #host-table td {
   color: #999;
-  width: 250px;
-  height: 60px;
-  padding-top: 10px;
+  height: 40px;
   border-bottom: 2px solid #999;
   text-align: center;
+}
+#host-table .host {
+  padding-bottom: 20px;
+  width: 350px;
+}
+#host-table .port {
+  padding-bottom: 20px;
+  width: 280px;
+}
+#host-table .button {
+  padding-top: 20px;
+  width: 120px;
 }
 tr#add-host-row {
 }
@@ -137,14 +147,26 @@ td#add-host {
   padding-top: 25px;
   font-style: italic
 }
+td#add-host input {
+  width: 330px;
+  text-align: center;
+}
+td#add-host-port input {
+  width: 180px;
+  text-align: center;
+}
 td#add-host-port {
   padding-top: 25px;
   font-style: italic
 }
 td#add-host-button {
-  padding-bottom: 10px;
+  padding-top: 10px;
 }
-/* jquery */
+td#add-host-button .ember-button {
+  padding: 5px 40px 5px 40px;
+  margin: 0px 0px 0px 0;
+}
+//* jquery */
 .ui-button-text {
   font-size: 80%;
 }

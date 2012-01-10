@@ -38,14 +38,14 @@
   <div id="show-hosts" title="hosts" style="display: none;">
     <table id="host-table">
       <tr>
-        <th>host</th>
-        <th>port</th>
-        <th></th>
+        <th class="host">host</th>
+        <th class="port">port</th>
+        <th class="button"></th>
       </tr>
       <tr id="add-host-row">
-        <td id="add-host">Enter Host</td>
-        <td id="add-host-port">Enter Port</td>
-        <td id="add-host-button">
+        <td id="add-host" class="host">Enter Host</td>
+        <td id="add-host-port" class="port">Enter Port</td>
+        <td id="add-host-button" class="button">
           <script type="text/x-handlebars">
             {{#view Em.Button
               target="Webinect.HostsController"
