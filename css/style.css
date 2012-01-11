@@ -152,7 +152,7 @@ td#add-host input {
   text-align: center;
 }
 td#add-host-port input {
-  width: 180px;
+  width: 150px;
   text-align: center;
 }
 td#add-host-port {
@@ -160,7 +160,7 @@ td#add-host-port {
   font-style: italic
 }
 td#add-host-button {
-  padding-top: 10px;
+  padding-top: 15px;
 }
 td#add-host-button .ember-button {
   padding: 5px 40px 5px 40px;

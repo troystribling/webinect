@@ -26,8 +26,8 @@ Webinect.HostsController = Em.ArrayProxy.create({
   showHosts: function() {
 		$('#show-hosts').dialog({height: 500, width: 800, modal: true, resizable: false,
       open: function() {
-        $('#add-host').editable();
-        $('#add-host-port').editable();
+       $("input[name=host").prompt("enter host");
+       $("input[name=port").prompt("enter port");
        },
       buttons: [
         {text: 'ok',
