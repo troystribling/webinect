@@ -19,16 +19,16 @@ Webinect.Host = Em.Object.extend({
 Webinect.HostsController = Em.ArrayProxy.create({
   content: [],
   displayedHost: function() {},
-  addHost: function(host, port) {
-    alert('Add Host')
+  addHost: function() {
+    var host = $('#add-hostname input').val();
+    var port = $('#add-host-port input').val();
+     alert('Add Host: '+host+':'+port)
   },
   removeHost: function(host) {},
   showHosts: function() {
 		$('#show-hosts').dialog({height: 500, width: 800, modal: true, resizable: false,
       open: function() {
-       $("input[name=host").prompt("enter host");
-       $("input[name=port").prompt("enter port");
-       },
+      },
       buttons: [
         {text: 'ok',
         click: function(){$(this).dialog('close').focus();}}]

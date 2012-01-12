@@ -143,28 +143,25 @@ body {
 }
 tr#add-host-row {
 }
-td#add-host {
+td#add-hostname {
   padding-top: 25px;
   font-style: italic
 }
-td#add-host input {
-  width: 330px;
+td#add-hostname input {
+  width: 340px;
   text-align: center;
 }
 td#add-host-port input {
-  width: 150px;
+  width: 200px;
   text-align: center;
 }
 td#add-host-port {
   padding-top: 25px;
   font-style: italic
 }
-td#add-host-button {
-  padding-top: 15px;
-}
 td#add-host-button .ember-button {
   padding: 5px 40px 5px 40px;
-  margin: 0px 0px 0px 0;
+  margin: 3px 0px 0px 0;
 }
 //* jquery */
 .ui-button-text {
