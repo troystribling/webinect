@@ -23,6 +23,7 @@ Webinect.HostsController = Em.ArrayProxy.create({
     var host = $('#add-hostname input').val();
     var port = $('#add-host-port input').val();
     var host = Webinect.Host.create({host:host, port:port});
+    this.pushObject(host)
      alert('Add Host: '+host.host+':'+host.port)
   },
   removeHost: function(host) {},
