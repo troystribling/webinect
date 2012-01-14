@@ -117,51 +117,29 @@ body {
 #host-table {
   width: 750px;
 }
-#host-table th {
+#host-header  {
   color: #666;
   padding-bottom: 10px;
   width: 250px;
   border-bottom: 2px solid #999;
 }
-#host-table td {
+ul.host-row {
+  border-bottom: 2px solid #999;
+}
+ul.host-row li {
+  display: inline-block;
   color: #999;
   height: 40px;
-  border-bottom: 2px solid #999;
   text-align: center;
 }
-#host-table .host {
-  padding-bottom: 20px;
+li.host-name {
   width: 350px;
 }
-#host-table .port {
-  padding-bottom: 20px;
+li.host-port {
   width: 280px;
 }
-#host-table .button {
-  padding-top: 20px;
+li.host-button {
   width: 120px;
-}
-tr#add-host-row {
-}
-td#add-hostname {
-  padding-top: 25px;
-  font-style: italic
-}
-td#add-hostname input {
-  width: 340px;
-  text-align: center;
-}
-td#add-host-port input {
-  width: 200px;
-  text-align: center;
-}
-td#add-host-port {
-  padding-top: 25px;
-  font-style: italic
-}
-td#add-host-button .ember-button {
-  padding: 5px 40px 5px 40px;
-  margin: 3px 0px 0px 0;
 }
 //* jquery */
 .ui-button-text {

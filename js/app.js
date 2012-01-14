@@ -1,7 +1,6 @@
 var Webinect = Em.Application.create();
 
 Webinect.Host = Em.Object.extend({
-  host: null,
   port: null,
   name: null,
   status: null,
@@ -20,11 +19,10 @@ Webinect.HostsController = Em.ArrayProxy.create({
   content: [],
   displayedHost: function() {},
   addHost: function() {
-    var host = $('#add-hostname input').val();
+    var name= $('#add-hostname input').val();
     var port = $('#add-host-port input').val();
-    var host = Webinect.Host.create({host:host, port:port});
+    var host = Webinect.Host.create({name:name, port:port});
     this.pushObject(host)
-     alert('Add Host: '+host.host+':'+host.port)
   },
   removeHost: function(host) {},
   showHosts: function() {
@@ -39,4 +37,5 @@ Webinect.HostsController = Em.ArrayProxy.create({
   showHost: function() {}
 });
 
+Webinect.HostView = Em.View.extend({});
 Webinect.DisplayView = Em.View.extend({});

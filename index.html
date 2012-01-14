@@ -13,9 +13,6 @@
   <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.16.custom.css">
   <link rel="stylesheet" href="css/style.css?v=2">
 
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
 </head>
 <body>
   <div id="header-wrapper">
@@ -36,26 +33,35 @@
   <div id="display">
   </div>
   <div id="show-hosts" title="hosts" style="display: none;">
-    <table id="host-table">
-      <tr>
-        <th class="host">host</th>
-        <th class="port">port</th>
-        <th class="button"></th>
-      </tr>
-      <tr id="add-host-row">
-        <td id="add-hostname" class="host"><input type="text"></td>
-        <td id="add-host-port" class="port"><input type="text" value="8008"></td>
-        <td id="add-host-button" class="button">
-          <script type="text/x-handlebars">
-            {{#view Em.Button
-              target="Webinect.HostsController"
-              action="addHost"}}
-              add
-            {{/view}}
-          </script>
-         </td>
-      </tr>
-    </table>
+    <ul class="host-row host-header">
+      <li class="host-name">host</li>
+      <li class="host-port">port</li>
+      <li class="host-button"></li>
+    </ul>
+      <script type="text/x-handlebars">
+        {{#each Webinect.HostsController}}
+          {{#view Webinect.HostView contentBinding="this"}}
+            <ul class="host-row">
+              <li class="host-name">{{content.name}}</li>
+              <li class="host-port">{{content.port}}</li>
+              <li class="host-button"></li>
+            </ul>
+          {{/view}}
+        {{/each}}
+      </script>
+    <ul id="add-host-row" class="host-row">
+      <li id="add-hostname" class="host-name"><input type="text"></li>
+      <li id="add-host-port" class="host-port"><input type="text" value="8008"></li>
+      <li id="add-host-button" class="host-button">
+        <script type="text/x-handlebars">
+          {{#view Em.Button
+            target="Webinect.HostsController"
+            action="addHost"}}
+            add
+          {{/view}}
+        </script>
+      </li>
+    </ul>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
