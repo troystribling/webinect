@@ -42,8 +42,7 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
 html { overflow-y: scroll; }
 a:hover, a:active { outline: none; }
-ul, ol { margin-left: 2em; }
-ol { list-style-type: decimal; }
+l { list-style-type: decimal; }
 nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
 small { font-size: 85%; }
 strong, th { font-weight: bold; }
@@ -117,30 +116,43 @@ body {
 #host-table {
   width: 750px;
 }
-#host-header  {
-  color: #666;
-  padding-bottom: 10px;
-  width: 250px;
-  border-bottom: 2px solid #999;
-}
 ul.host-row {
+}
+ul.host-header {
+  color: #999;
   border-bottom: 2px solid #999;
 }
 ul.host-row li {
   display: inline-block;
-  color: #999;
-  height: 40px;
+  color: #666;
+  height: 50px;
   text-align: center;
 }
 li.host-name {
   width: 350px;
 }
 li.host-port {
-  width: 280px;
+  width: 200px;
 }
 li.host-button {
-  width: 120px;
+  width: 180px;
 }
+#add-host-name input {
+  width: 330px;
+  text-align: center;
+}
+#add-host-port input {
+  width: 160px;
+  text-align: center;
+}
+#add-host-button button {
+}
+#add-host-button .ember-button {
+  padding: 5px 50px 5px 50px;
+  margin: 22px 5px 0 5px;
+  width: 170px;
+}
+
 //* jquery */
 .ui-button-text {
   font-size: 80%;

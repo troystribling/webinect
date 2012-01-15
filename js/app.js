@@ -18,15 +18,13 @@ Webinect.Host = Em.Object.extend({
 Webinect.HostsController = Em.ArrayProxy.create({
   content: [],
   displayedHost: function() {},
-  addHost: function() {
-    var name= $('#add-hostname input').val();
-    var port = $('#add-host-port input').val();
-    var host = Webinect.Host.create({name:name, port:port});
+  addHost: function(hostName, hostPort) {
+    var host = Webinect.Host.create({name:hostName, port:hostPort});
     this.pushObject(host)
   },
   removeHost: function(host) {},
   showHosts: function() {
-		$('#show-hosts').dialog({height: 500, width: 800, modal: true, resizable: false,
+    $('#show-hosts').dialog({height: 500, width: 800, modal: true, resizable: false,
       open: function() {
       },
       buttons: [
@@ -38,4 +36,24 @@ Webinect.HostsController = Em.ArrayProxy.create({
 });
 
 Webinect.HostView = Em.View.extend({});
+
+Webinect.AddHostView = Em.View.extend({
+  hostName: '',
+  hostPort: '',
+  addHostButton: Em.Button.extend({
+    click: function() {
+      var parent = this.get('parentView'),
+          hostName = parent.get('hostName'),
+          hostPort = parent.get('hostPort');
+      if (hostName != '' || hostPort != '') {
+        Webinect.HostsController.addHost(hostName, hostPort);
+        parent.set('hostName', '');
+        parent.set('hostPort', '');
+      } else {
+        alert('hostname and port must be specified!');
+      }
+    }
+  })
+});
+
 Webinect.DisplayView = Em.View.extend({});
