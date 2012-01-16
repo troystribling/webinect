@@ -25,9 +25,13 @@ Webinect.HostsController = Em.ArrayProxy.create({
   hostFullName: function(hostName, hostPort) {
     return  hostName+':'+hostPort;
   },
-  deleteHost: function(hostName, hostPort) {
+  hasHost: function(hostName, hostPort) {
     var fullName = this.hostFullName(hostName, hostPort);
-    var hostToDelete = this.findProperty('fullName', fullName);
+    return this.findProperty('fullName', fullName);
+  },
+  deleteHost: function(hostName, hostPort) {
+    var fullName = this.hostFullName(hostName, hostPort),
+        hostToDelete = this.findProperty('fullName', fullName);
     if (hostToDelete) {
       this.removeObject(hostToDelete)
     }
@@ -40,8 +44,7 @@ Webinect.HostsController = Em.ArrayProxy.create({
         {text: 'ok',
         click: function(){$(this).dialog('close').focus();}}]
     });
-  },
-  showHost: function() {}
+  }
 });
 
 Webinect.HostView = Em.View.extend({
@@ -64,12 +67,14 @@ Webinect.AddHostView = Em.View.extend({
       var parent = this.get('parentView'),
           hostName = parent.get('hostName'),
           hostPort = parent.get('hostPort');
-      if (hostName != '' || hostPort != '') {
+      if (hostName == '' || hostPort == '') {
+        alert('hostname and port must be specified!');
+      } else if (Webinect.HostsController.hasHost(hostName, hostPort)) {
+        alert('host with given hostname and port exists!');
+      } else {
         Webinect.HostsController.addHost(hostName, hostPort);
         parent.set('hostName', '');
         parent.set('hostPort', '');
-      } else {
-        alert('hostname and port must be specified!');
       }
     }
   })
