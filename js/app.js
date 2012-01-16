@@ -1,5 +1,34 @@
 var Webinect = Em.Application.create();
 
+// models
+Webinect.Socket = Em.Object.extend({
+  port: null,
+  hostname: null,
+  socket: null,
+  status: 'inactive',
+  host: null,
+  uri: function() {
+    return 'wd://'+this.get('hostname')+':'+this.get('port');
+  }.property('hostname', 'port'),
+  connect: function() {
+    var addr = this.get('uri'),
+        newSocket = new WebSocket(addr);
+    this.set('socket', new_socket);
+  },
+  onError: function(cb) {
+    this.get('socket').onerror = cb;
+  },
+  onMessage: function(cb) {
+    this.get('socket').onmessage = cb;
+  },
+  onOpen: function(cb) {
+    this.get('socket').onopen = cb;
+  },
+  onClose: function(cb) {
+    this.get('socket').onclose = cb;
+  }
+ });
+
 Webinect.Host = Em.Object.extend({
   port: null,
   name: null,
@@ -11,10 +40,21 @@ Webinect.Host = Em.Object.extend({
   fullName: function() {
     return this.get('name')+':'+this.get('port')
   }.property('name', 'port'),
-  open: function() {},
-  close: function() {}
+  onError: function() {
+  },
+  onMessage: function() {
+  },
+  onOpen: function() {
+  },
+  onClose: function() {
+  },
+  open: function() {
+  },
+  close: function() {
+  }
 });
 
+// controllers
 Webinect.HostsController = Em.ArrayProxy.create({
   content: [],
   displayedHost: function() {},
@@ -47,6 +87,7 @@ Webinect.HostsController = Em.ArrayProxy.create({
   }
 });
 
+// views
 Webinect.HostView = Em.View.extend({
   deleteHostButton: Em.Button.extend({
     hostName: '',
