@@ -49,7 +49,11 @@
             <ul class="host-row">
               <li class="host-name">{{content.name}}</li>
               <li class="host-port">{{content.port}}</li>
-              <li class="host-button"></li>
+              <li class="host-button">
+                {{#view deleteHostButton hostName=content.name hostPort=content.port}}
+                  delete
+                {{/view}}
+              </li>
             </ul>
           {{/view}}
         {{/each}}

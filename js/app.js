@@ -22,7 +22,16 @@ Webinect.HostsController = Em.ArrayProxy.create({
     var host = Webinect.Host.create({name:hostName, port:hostPort});
     this.pushObject(host)
   },
-  removeHost: function(host) {},
+  hostFullName: function(hostName, hostPort) {
+    return  hostName+':'+hostPort;
+  },
+  deleteHost: function(hostName, hostPort) {
+    var fullName = this.hostFullName(hostName, hostPort);
+    var hostToDelete = this.findProperty('fullName', fullName);
+    if (hostToDelete) {
+      this.removeObject(hostToDelete)
+    }
+  },
   showHosts: function() {
     $('#show-hosts').dialog({height: 500, width: 800, modal: true, resizable: false,
       open: function() {
@@ -35,7 +44,17 @@ Webinect.HostsController = Em.ArrayProxy.create({
   showHost: function() {}
 });
 
-Webinect.HostView = Em.View.extend({});
+Webinect.HostView = Em.View.extend({
+  deleteHostButton: Em.Button.extend({
+    hostName: '',
+    hostPort: '',
+    click: function() {
+      var hostName = this.get('hostName'),
+          hostPort = this.get('hostPort');
+      Webinect.HostsController.deleteHost(hostName, hostPort);
+    }
+   })
+});
 
 Webinect.AddHostView = Em.View.extend({
   hostName: '',
