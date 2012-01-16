@@ -54,9 +54,11 @@ Webinect.HostView = Em.View.extend({
     click: function() {
       var hostName = this.get('hostName'),
           hostPort = this.get('hostPort');
-      Webinect.HostsController.deleteHost(hostName, hostPort);
+      if(confirm("delete host?")) {
+        Webinect.HostsController.deleteHost(hostName, hostPort);
+      }
     }
-   })
+  })
 });
 
 Webinect.AddHostView = Em.View.extend({

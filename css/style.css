@@ -116,8 +116,6 @@ body {
 #host-table {
   width: 750px;
 }
-ul.host-row {
-}
 ul.host-header {
   color: #999;
   border-bottom: 2px solid #999;
@@ -125,7 +123,7 @@ ul.host-header {
 ul.host-row li {
   display: inline-block;
   color: #666;
-  height: 50px;
+  height: 40px;
   text-align: center;
 }
 li.host-name {
@@ -145,14 +143,11 @@ li.host-button {
   width: 160px;
   text-align: center;
 }
-#add-host-button button {
-}
-#add-host-button .ember-button {
+.host-button .ember-button {
   padding: 5px 50px 5px 50px;
-  margin: 22px 5px 0 5px;
+  margin: 12px 0 0 0;
   width: 170px;
 }
-
 //* jquery */
 .ui-button-text {
   font-size: 80%;
