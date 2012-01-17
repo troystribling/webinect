@@ -6,28 +6,30 @@ Webinect.Socket = Em.Object.extend({
   hostname: null,
   socket: null,
   status: 'inactive',
-  host: null,
   uri: function() {
-    return 'wd://'+this.get('hostname')+':'+this.get('port');
+    return 'ws://'+this.get('hostname')+':'+this.get('port');
   }.property('hostname', 'port'),
   connect: function() {
     var addr = this.get('uri'),
-        newSocket = new WebSocket(addr);
-    this.set('socket', new_socket);
+        sock = new WebSocket(addr);
+    this.set('socket', sock);
   },
-  onError: function(cb) {
-    this.get('socket').onerror = cb;
-  },
-  onMessage: function(cb) {
-    this.get('socket').onmessage = cb;
+  close: function() {
+    this.get('socket').close();
   },
   onOpen: function(cb) {
     this.get('socket').onopen = cb;
   },
   onClose: function(cb) {
     this.get('socket').onclose = cb;
+  },
+  onMessage: function(cb) {
+    this.get('socket').onmessage = cb;
+  },
+  onError: function(cb) {
+    this.get('socket').onerror = cb;
   }
- });
+});
 
 Webinect.Host = Em.Object.extend({
   port: null,
@@ -40,17 +42,57 @@ Webinect.Host = Em.Object.extend({
   fullName: function() {
     return this.get('name')+':'+this.get('port')
   }.property('name', 'port'),
-  onError: function() {
-  },
-  onMessage: function() {
-  },
-  onOpen: function() {
-  },
-  onClose: function() {
-  },
-  open: function() {
+  connect: function() {
+    var csock = Webinect.Socket.create({
+      hostname:this.get('name'), 
+      port:this.get('port')});
+    csock.connect();
+    csock.onOpen(function(){
+    });
+    csock.onClose(function(){
+    });
+    csock.onClose(function(){
+    });
+    csock.onMessage(function(){
+    });
+    csock.onError(function(){
+    });
+    this.set('commandSocket', csock);
+    var dsock = Webinect.Socket.create({
+      hostname:this.get('name'), 
+      port:this.get('port')});
+    dsock.connect();
+    dsock.onOpen(function(){
+    });
+    dsock.onClose(function(){
+    });
+    dsock.onClose(function(){
+    });
+    dsock.onMessage(function(){
+    });
+    dsock.onError(function(){
+    });
+    this.set('depthSocket', dsock);
+    var vsock = Webinect.Socket.create({
+      hostname:this.get('name'), 
+      port:this.get('port')});
+    vsock.connect();
+    vsock.onOpen(function(){
+    });
+    vsock.onClose(function(){
+    });
+    vsock.onClose(function(){
+    });
+    vsock.onMessage(function(){
+    });
+    vsock.onError(function(){
+    });
+    this.set('videoSocket', vsock);
   },
   close: function() {
+    this.get('commandSocket').close();
+    this.get('depthSocket').close();
+    this.get('videoSocket').close();
   }
 });
 
@@ -60,6 +102,7 @@ Webinect.HostsController = Em.ArrayProxy.create({
   displayedHost: function() {},
   addHost: function(hostName, hostPort) {
     var host = Webinect.Host.create({name:hostName, port:hostPort});
+    host.connect();
     this.pushObject(host)
   },
   hostFullName: function(hostName, hostPort) {
@@ -71,9 +114,10 @@ Webinect.HostsController = Em.ArrayProxy.create({
   },
   deleteHost: function(hostName, hostPort) {
     var fullName = this.hostFullName(hostName, hostPort),
-        hostToDelete = this.findProperty('fullName', fullName);
-    if (hostToDelete) {
-      this.removeObject(hostToDelete)
+        host     = this.findProperty('fullName', fullName);
+    if (host) {
+      host.close();
+      this.removeObject(host);
     }
   },
   showHosts: function() {
