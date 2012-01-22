@@ -26,15 +26,27 @@
     <div id="header">
     </div>
   </div>
-  <div id="controls">
-    <div class="control">
-      <script type="text/x-handlebars">
-        {{#view Em.Button target="Webinect.HostsController" action="showHosts"}}
-          hosts
-        {{/view}}
-      </script>
+  <ul id="controls">
+    <li class="control">
+      <div id="add-host-button">
+        <script type="text/x-handlebars">
+          {{#view Em.Button target="Webinect.HostsController" action="showHosts"}} hosts {{/view}}
+        </script>
+      </div>
     </div>
-  </div>
+    <li class="control">
+      <div id="tilt-control-wrapper">
+        <div id="tilt-title">tilt: </div>
+        <div id="tilt-value">0</div>
+        <div id="tilt-min">-25</div>
+        <div id="tilt-control"></div>
+        <div id="tilt-max">25</div>
+      </div>
+    </div>
+    <li class="control">
+      <div id="led-control"></div>
+    </div>
+  </ul>
   <div id="display">
   </div>
   <div id="show-hosts" title="hosts" style="display: none;">

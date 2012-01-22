@@ -168,3 +168,8 @@ Webinect.AddHostView = Em.View.extend({
 });
 
 Webinect.DisplayView = Em.View.extend({});
+
+// jquery ui
+$(function() {
+  $('#tilt-control').slider();
+});

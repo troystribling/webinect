@@ -97,15 +97,65 @@ body {
   margin: 0 auto;
   width: 1000px;
 }
+/* controls */
 #controls {
   margin: 0 auto;
   padding-top: 5px;
   height: 65px;
   width: 1000px;
+  list-style-type: none;
 }
 .control {
-  display: table-cell;
+  display: inline;
 }
+#add-host-button {
+  float: left;
+}
+#tilt-control-wrapper {
+  width: 300px;
+  height: 65px;
+  font-size: 0.85em;
+  margin-left: 225px;
+}
+#tilt-control {
+  float: left;
+  margin: 10px 0px 0px 15px;
+  width: 200px;
+}
+#tilt-control.ui-slider-horizontal {
+  height: 0.5em;
+}
+#tilt-control .ui-slider-handle {
+  width: 1em;
+  height: 1em;
+  top: -.3em;
+}
+#tilt-min {
+  margin-top: 5px;
+  float: left;
+ }
+#tilt-max {
+  margin-top: 5px;
+  float: right;
+}
+#tilt-value {
+  top: 5px;
+  width: 100px;
+  margin-left: 110px;
+  position: relative;
+}
+#tilt-title {
+  left: 0px;
+  top: 5px;
+  width: 100px;
+  margin-left: 110px;
+  position: relative;
+}
+#led-control {
+  width 100px;
+  float: left;
+}
+/* display */
 #display {
   margin: 0 auto;
   width: 1000px;
@@ -135,6 +185,11 @@ li.host-port {
 li.host-button {
   width: 180px;
 }
+.host-button .ember-button {
+  padding: 5px 50px 5px 50px;
+  margin: 12px 0 0 0;
+  width: 170px;
+}
 #add-host-name input {
   width: 330px;
   text-align: center;
@@ -143,11 +198,7 @@ li.host-button {
   width: 160px;
   text-align: center;
 }
-.host-button .ember-button {
-  padding: 5px 50px 5px 50px;
-  margin: 12px 0 0 0;
-  width: 170px;
-}
+
 //* jquery */
 .ui-button-text {
   font-size: 80%;
