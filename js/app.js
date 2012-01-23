@@ -99,16 +99,25 @@ Webinect.Host = Em.Object.extend({
 // controllers
 Webinect.HostsController = Em.ArrayProxy.create({
   content: [],
-  displayedHost: function() {},
+  displayedHost: function() {
+    return this.findProperty('displayed', true);
+  },
+  displayHost: function(fullName) {
+    var currentHost = this.displayedHost();
+    if (currentHost) {
+      currentHost.set('display', false);
+    }
+    var nextHost = this.findProperty('fullName', fullName);
+    if (nextHost) {
+      nextHost.set('displayed', true);
+    }
+  },
   addHost: function(hostName, hostPort) {
     var host = Webinect.Host.create({name:hostName, port:hostPort});
     host.connect();
     this.pushObject(host)
   },
-  hostFullName: function(hostName, hostPort) {
-    return  hostName+':'+hostPort;
-  },
-  hasHost: function(hostName, hostPort) {
+ hasHost: function(hostName, hostPort) {
     var fullName = this.hostFullName(hostName, hostPort);
     return this.findProperty('fullName', fullName);
   },
@@ -128,8 +137,15 @@ Webinect.HostsController = Em.ArrayProxy.create({
         {text: 'ok',
         click: function(){$(this).dialog('close').focus();}}]
     });
+  },
+  setDisplayedHostTilt: function(tilt) {
+  },
+  setDisplayedHostLED: function(ledState) {
+  },
+  hostFullName: function(hostName, hostPort) {
+    return  hostName+':'+hostPort;
   }
-});
+ });
 
 // views
 Webinect.HostView = Em.View.extend({

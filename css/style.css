@@ -114,13 +114,16 @@ body {
 #tilt-control-wrapper {
   width: 300px;
   height: 65px;
+  float: left;
   font-size: 0.85em;
-  margin-left: 225px;
+  margin-left: 200px;
+  position: relative;
 }
 #tilt-control {
-  float: left;
-  margin: 10px 0px 0px 15px;
   width: 200px;
+  top: 36px;
+  left: 20px;
+  position: absolute;
 }
 #tilt-control.ui-slider-horizontal {
   height: 0.5em;
@@ -131,29 +134,40 @@ body {
   top: -.3em;
 }
 #tilt-min {
-  margin-top: 5px;
-  float: left;
+  top: 30px;
+  left: -25px;
+  position: absolute;
  }
 #tilt-max {
-  margin-top: 5px;
-  float: right;
+  top: 30px;
+  right: 42px;
+  position: absolute;
 }
 #tilt-value {
-  top: 5px;
-  width: 100px;
-  margin-left: 110px;
-  position: relative;
+  top: 3px;
+  left: 125px;
+  position: absolute;
 }
 #tilt-title {
-  left: 0px;
-  top: 5px;
-  width: 100px;
-  margin-left: 110px;
-  position: relative;
+  top: 3px;
+  left: 95px;
+  position: absolute;
 }
 #led-control {
   width 100px;
   float: left;
+  margin-left: 25px;
+  position: relative;
+}
+#led-control-title {
+  font-size: .75em;
+  top: 3px;;
+  left: 50px;
+  position: absolute;
+}
+#led-control select {
+  top: 30px;
+  position: absolute;
 }
 /* display */
 #display {

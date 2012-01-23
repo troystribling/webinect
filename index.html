@@ -33,7 +33,22 @@
           {{#view Em.Button target="Webinect.HostsController" action="showHosts"}} hosts {{/view}}
         </script>
       </div>
-    </div>
+    </li>
+    <li class="control">
+      <div id="led-control">
+        <div id="led-control-title">
+          LED
+        </diV>
+        <select>
+          <option value="off" selected="selected">off</option>
+          <option value="green">green</option>
+          <option value="red">red</option>
+          <option value="yellow">yellow</option>
+          <option value="blinq_green">blink green</option>
+          <option value="blinq_red_yellow">blink red yellow</option>
+        </select>
+      </div>
+    </li>
     <li class="control">
       <div id="tilt-control-wrapper">
         <div id="tilt-title">tilt: </div>
@@ -42,10 +57,7 @@
         <div id="tilt-control"></div>
         <div id="tilt-max">25</div>
       </div>
-    </div>
-    <li class="control">
-      <div id="led-control"></div>
-    </div>
+    </li>
   </ul>
   <div id="display">
   </div>
